@@ -7,9 +7,7 @@ $('document').ready(function() {
         event.preventDefault();
         $('<li>' + $('input[type="text"]').val() + '</li>').appendTo('body');
     });
-        
-
-   $('ul').appendTo('body');    
+         $('ul').appendTo('body');    
 });
 
     
