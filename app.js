@@ -5,17 +5,13 @@ $('document').ready(function() {
     
     $('form').submit(function() {
         event.preventDefault();
-        alert($('input[type="text"]').val());
-        $('<div><h2>' + $('input[type="text"]').val() + '</h2></div>').appendTo('body');
-            $("h2").mouseover(function() {
-             $(this).addClass('style');
-                
-        });
-            $("h2").mouseout(function() {
-            $(this).removeClass('style');
-            
+        $('<li>' + $('input[type="text"]').val() + '</li>').appendTo('body');
     });
-    });
-    
+        
+
+   $('ul').appendTo('body');    
 });
+
+    
+
 
