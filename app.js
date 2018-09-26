@@ -1,15 +1,44 @@
-$('document').ready(function() {
-    $('#btnSubmit').click(function() {
+$('document').ready(function () {
+    $('<ul></ul>').insertBefore('#btnSubmit');
+    //disabled and enabled submit button
+    $(':input[type="submit"]').prop('disabled', true);
+    $('input[type="text"]').keyup(function () {
+        if ($(this).val() != '') {
+            $(':input[type="submit"]').prop('disabled', false);
+        }
+    });
+
+    //basic button with alert
+    $('#btnSubmit').click(function () {
         alert('The button has been clicked.');
     });
-    
-    $('form').submit(function() {
+
+    //Adding list items
+    $('form').submit(function () {
         event.preventDefault();
-        $('<li>' + $('input[type="text"]').val() + '</li>').appendTo('body');
+        $('ul').append($('<li>' + $('input[type="text"]').val() + '</li>'));
+    
+       //changing color of list items
+        $('li').on('click', function () {
+            let colorChange = "rgb(" +
+            Math.floor(Math.random() * 256) +
+            "," +
+            Math.floor(Math.random() * 256) +
+            "," +
+            Math.floor(Math.random() * 256) +
+            ")";
+            $('li').css('color', colorChange);
+       });
+
+       //Removing list item on double click
+         $('li').on('dblclick', function() {
+             $(this).remove();
+        });
+
     });
-         $('ul').appendTo('body');    
+
 });
 
-    
+
 
 
